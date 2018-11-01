@@ -1,0 +1,36 @@
+html {
+    font-family: arial, sans-serif;
+    color: #000000;
+}
+
+table {
+    border: 1px solid #485F6E;
+    border-collapse: collapse;
+}
+th {
+    background-color: #73a9dd;
+    border: 1px solid #090a43;
+    text-align: left;
+    padding: 16px;
+}
+
+td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #090a43;
+
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+a {
+    font-size: 2em;
+    text-decoration: none;
+}
+a:visited { text-decoration: none; color: #000000; }
+
+ul {
+    list-style-type: none;
+}
