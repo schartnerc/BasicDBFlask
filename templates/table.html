@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
     <h3>{{ heading }}</h3>
-    <table>
-        {% for head in header %}
-        <th>{{ head[0] }}</th>
-        {% endfor %}
-        {% for record in results %}
-            <tr>
-               {% for entry in record %}
-                    {% if entry is number %}
-                        <td style="text-align: right">{{ entry }}</td>
-                    {% else %}
-                        <td style="text-align: left">{{ entry }}</td>
-                    {% endif %}
-               {% endfor %}
-            </tr>
-        {% endfor %}
+    {% if results[0] is defined %}
+        <table>
+            {% for head in header %}
+            <th>{{ head[0] }}</th>
+            {% endfor %}
+            {% for record in results %}
+                <tr>
+                   {% for entry in record %}
+                        {% if entry is number %}
+                            <td style="text-align: right">
+                                    {{ entry }}
+                            </td>
+                        {% else %}
+                            <td style="text-align: left">
+                                {{ entry }}
+                            </td>
+                        {% endif %}
+                   {% endfor %}
+                </tr>
+            {% endfor %}
 
-    </table>
+        </table>
+    {% else %}
+        <p>There are no results</p>
+    {% endif %}
+
 {% endblock %}

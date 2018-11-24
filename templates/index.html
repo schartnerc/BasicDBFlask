@@ -1,12 +1,274 @@
 {% extends 'base.html' %}
 {% block content %}
-    <ul>
-        <li>
-            <a href="/customer">Customer</a>
-        </li>
-        <li>
-            <a href="/product">Product</a>
-        </li>
+<table id="index">
+    <tr>
 
-    </ul>
+            <td>
+                <p>Highest Ranked Movie</p>
+            </td>
+            <td>
+                <form action="/highestRanked">
+                <input type="submit" value="Execute">
+                </form>
+            </td>
+            <td>
+            </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Movies by a Director</p>
+        </td>
+        <td>
+            <form action="/director" method="get">
+                <input type="text" name="name" placeholder="Name">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try 'Fincher' to show all movies directed by David Fincher.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Movies by an Actor</p>
+        </td>
+        <td>
+            <form action="/actor" method="get">
+                <input type="text" name="name" placeholder="Name">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try 'Johnny Depp' to show all movies starring Johnny Depp.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Highest rated movies in a year</p>
+        </td>
+        <td>
+            <form action="/yearRated" method="get">
+                <input type="text" name="year" placeholder="Year">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Highest rated movie in a genre</p>
+        </td>
+        <td>
+            <form action="/highestRankedGenre" method="get">
+                <input type="text" name="genre" placeholder="Genre">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try 'Comedy'.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Movies ranked for a tag</p>
+        </td>
+        <td>
+            <form action="/tagRanked" method="get">
+                <input type="text" name="content" placeholder="Tag">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try 'funny' to show all movies tagged as funny.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Most starred in genres for an actor</p>
+        </td>
+        <td>
+            <form action="/genreActor" method="get">
+                <input type="text" name="name" placeholder="Name">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try 'Emily Blunt' to show all genres starred in by Emily Blunt.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Most paired up actors</p>
+        </td>
+        <td>
+            <form action="/" method="get">
+                <input type="submit" value="Execute" disabled="True" title="Query time issue">
+            </form>
+        </td>
+        <td>
+            <p id="problem">Problem: Due to the size of the data set the execution time is too long!</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>All ratings by a user</p>
+        </td>
+        <td>
+            <form action="/userRatings" method="get">
+                <input type="text" name="id" placeholder="User ID">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try '610' to show all ratings by user 610.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Genre count of rated movies by a user</p>
+        </td>
+        <td>
+            <form action="/genreRatedUser" method="get">
+                <input type="text" name="id" placeholder="User ID">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try '610' to get a genre count.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Information of searched movies</p>
+        </td>
+        <td>
+            <form action="/searchMovie" method="get">
+                <input type="text" name="title" placeholder="Title">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try 'Lord of the Rings' to show all Lord of the Rings movies.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Highest budget for a movie</p>
+        </td>
+        <td>
+            <form action="/highestBudget" method="get">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Finding underdog movie</p>
+        </td>
+        <td>
+            <form action="/underdogMovie" method="get">
+                <input type="text" name="max" placeholder="Maximum Budget">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Specify a maximum budget, e.g. 5,000,000.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Rating development per year</p>
+        </td>
+        <td>
+            <form action="/ratingEvolution" method="get">
+                <input type="text" name="id" placeholder="Movie ID">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try '1' to see the rating development of 'Toy Story'.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Lowest rated movie</p>
+        </td>
+        <td>
+            <form action="/lowestRankedMovie" method="get">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Information about a person</p>
+        </td>
+        <td>
+            <form action="/personInfo" method="get">
+                <input type="text" name="id" placeholder="Person ID">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+            <td>
+        <p>Tip: Try '11409' to show basic information about a person.</p>
+    </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Movies with longest runtime</p>
+        </td>
+        <td>
+            <form action="/longestRuntime" method="get">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+    </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Most tagged movies</p>
+        </td>
+        <td>
+            <form action="/mostTagged" method="get">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Tags for a movie</p>
+        </td>
+        <td>
+            <form action="/movieTags" method="get">
+                <input type="text" name="id" placeholder="Movie ID">
+                <input type="submit" value="Execute">
+            </form>
+        </td>
+        <td>
+            <p>Tip: Try '4896' to show all tags for 'Harry Potter and the Philosopher's Stone'.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Movies with age restriction</p>
+        </td>
+        <td>
+            <form action="" method="get">
+                <input type="text" name="id" placeholder="Minimum Age" disabled="True" title="Data not available">
+                <input type="submit" value="Execute" disabled="True" title="Data not available">
+            </form>
+        </td>
+        <td>
+            <p id="problem">Problem: The current data set does not supply this information!</p>
+        </td>
+    </tr>
+</table>
 {% endblock %}

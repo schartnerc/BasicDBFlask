@@ -1,16 +1,24 @@
 html {
     font-family: arial, sans-serif;
     color: #000000;
+    text-align: center;
 }
 
 table {
     border: 1px solid #485F6E;
     border-collapse: collapse;
+    width: 70%;
+    margin-left: 15%;
 }
+
+#index {
+    margin-top: 3%;
+}
+
 th {
     background-color: #73a9dd;
     border: 1px solid #090a43;
-    text-align: left;
+    text-align: center;
     padding: 16px;
 }
 
@@ -26,11 +34,18 @@ tr:nth-child(even) {
 }
 
 a {
-    font-size: 2em;
+    font-size: 3em;
     text-decoration: none;
 }
+
 a:visited { text-decoration: none; color: #000000; }
 
-ul {
-    list-style-type: none;
+
+input[type=submit] {
+    float: right;
 }
+
+#problem {
+    color: #9C1A1C;
+}
+

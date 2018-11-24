@@ -1,10 +1,11 @@
 <!doctype html>
 <head>
-    <title>Simple DB output</title>
+    <title>MoviesMatter</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }}>
 </head>
 <body>
-    <a href="/">Database</a>
+    <a href="/">Home</a>
+    </br>
     {% block content %}{% endblock %}
 </body>
